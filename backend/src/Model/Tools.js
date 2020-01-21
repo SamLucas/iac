@@ -6,7 +6,8 @@ class Tool extends Model {
       {
         titulo: DataTypes.STRING,
         autor: DataTypes.STRING,
-        descricao: DataTypes.STRING
+        descricao: DataTypes.STRING,
+        ferramenta_url: DataTypes.STRING
       },
       { sequelize }
     );

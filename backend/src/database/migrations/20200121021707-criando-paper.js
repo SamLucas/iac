@@ -21,6 +21,10 @@ module.exports = {
         type: Sequelize.STRING,
         allowNull: false
       },
+      paper_url: {
+        type: Sequelize.STRING,
+        allowNull: false
+      },
       line_id: {
         type: Sequelize.INTEGER,
         allowNull: false,

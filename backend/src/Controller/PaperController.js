@@ -15,7 +15,9 @@ module.exports = {
   async store(req, res) {
     const { line_id } = req.params;
     const { nome, autor, descricao } = req.body;
-    const data = { nome, autor, descricao, line_id };
+    const paper_url = req.file.filename;
+
+    const data = { nome, autor, descricao, line_id, paper_url };
 
     const new_papper = await Paper.create(data);
     return res.json(new_papper);
@@ -23,7 +25,8 @@ module.exports = {
 
   async update(req, res) {
     const { id, titulo, ativo, descricao, autor, texto } = req.body;
-    const data = { id, titulo, ativo, descricao, autor, texto };
+    const paper_url = req.file.filename;
+    const data = { id, titulo, ativo, descricao, autor, texto, paper_url };
     const noicia = await Paper.update(data, { where: { id } });
     return res.json(noicia);
   },

@@ -14,7 +14,9 @@ module.exports = {
 
   async store(req, res) {
     const { titulo, descricao, autor } = req.body;
-    const data = { titulo, descricao, autor };
+    const ferramenta_url = req.file.filename;
+
+    const data = { titulo, descricao, autor, ferramenta_url };
 
     const new_noticia = await Tool.create(data);
     return res.json(new_noticia);
@@ -22,7 +24,9 @@ module.exports = {
 
   async update(req, res) {
     const { id, titulo, descricao, autor } = req.body;
-    const data = { id, titulo, descricao, autor };
+    const ferramenta_url = req.file.filename;
+
+    const data = { id, titulo, descricao, autor, ferramenta_url };
     const noicia = await Tool.update(data, { where: { id } });
     return res.json(noicia);
   },

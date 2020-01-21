@@ -6,7 +6,8 @@ class Paper extends Model {
       {
         nome: DataTypes.STRING,
         autor: DataTypes.STRING,
-        descricao: DataTypes.STRING
+        descricao: DataTypes.STRING,
+        paper_url: DataTypes.STRING
       },
       { sequelize }
     );

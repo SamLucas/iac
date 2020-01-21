@@ -15,7 +15,9 @@ module.exports = {
 
   async store(req, res) {
     const { name, email, senha, tipo, descricao, lattes } = req.body;
-    const data = { name, email, senha, tipo, descricao, lattes };
+    const foto_url = req.file.filename;
+
+    const data = { name, email, senha, tipo, descricao, lattes, foto_url };
     let user = User.findOne({ email });
 
     if (!user)
@@ -28,7 +30,9 @@ module.exports = {
 
   async update(req, res) {
     const { id, name, email, senha, tipo, descricao, lattes } = req.body;
-    const data = { id, name, email, senha, tipo, descricao, lattes };
+    const foto_url = req.file.filename;
+
+    const data = { id, name, email, senha, tipo, descricao, lattes, foto_url };
     const user = await User.update(data, { where: { id } });
     return res.json(user);
   },

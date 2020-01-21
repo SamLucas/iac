@@ -9,7 +9,8 @@ class User extends Model {
         senha: DataTypes.STRING,
         tipo: DataTypes.BOOLEAN,
         descricao: DataTypes.STRING,
-        lattes: DataTypes.STRING
+        lattes: DataTypes.STRING,
+        foto_url: DataTypes.STRING
       },
       { sequelize }
     );
