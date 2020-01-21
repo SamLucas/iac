@@ -1,4 +1,5 @@
 const User = require("../Model/User");
+const jwt = require("jsonwebtoken");
 
 module.exports = {
   async index(req, res) {
@@ -36,5 +37,19 @@ module.exports = {
     const { id } = req.query;
     await User.destroy({ where: { id } });
     return res.json();
+  },
+
+  async login(req, res) {
+    const { email, senha } = req.body;
+    const user = await User.findOne({ email, senha });
+
+    if (user) {
+      jwt.sign({ user }, "secretkey", { expiresIn: "3h" }, (err, token) => {
+        return res.json({
+          token,
+          user
+        });
+      });
+    }
   }
 };
