@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Theme from "../../../config/Theme";
+import { Link } from "react-router-dom";
 
 export const ContainerNew = styled.div`
   margin: 150px 0px;
@@ -22,9 +23,15 @@ export const ContainerNews = styled.div`
   border-radius: 10px;
 `;
 
+export const Linkto = styled(Link)`
+  text-decoration: none;
+  color: black;
+`;
+
 export const CotentNews = styled.div`
   padding: 10px;
   margin: 10px 0px;
+  width: 100%;
   background-color: rgba(0, 0, 0, 0.07);
 `;
 
@@ -33,10 +40,11 @@ export const NewsTitle = styled.div`
   margin: 5px 0px 20px;
 `;
 
-export const ContainerNewsTitle = styled.div`
+export const ContainerNewsTitle = styled.p`
   font-weight: bold;
   font-size: 18px;
   margin-bottom: 5px;
+  cursor: pointer;
 `;
 
 export const ContainerNewsDescribe = styled.p``;

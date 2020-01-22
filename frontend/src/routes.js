@@ -1,11 +1,12 @@
 import React from "react";
 import { BrowserRouter, Switch, Route } from "react-router-dom";
 
-import Home from "./pages/frontend/home";
-import LineSearch from "./pages/frontend/line_seach";
-import Members from "./pages/frontend/member";
-import News from "./pages/frontend/news";
 import Error404 from "./components/404";
+import News from "./pages/frontend/news";
+import Home from "./pages/frontend/home";
+import Members from "./pages/frontend/member";
+import Download from "./pages/frontend/download";
+import LineSearch from "./pages/frontend/line_seach";
 
 export default function Routes() {
   return (
@@ -15,6 +16,7 @@ export default function Routes() {
         <Route path="/linha" component={LineSearch} />
         <Route path="/membros" component={Members} />
         <Route path="/news" component={News} />
+        <Route path="/Download" component={Download} />
         <Route path="*" component={Error404} />
       </Switch>
     </BrowserRouter>

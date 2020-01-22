@@ -4,25 +4,31 @@ import { useLocation } from "react-router-dom";
 import { Ul, Li, LinkTo } from "./styles";
 
 export default function Menu() {
-  const [location, setLocation] = useState(useLocation());
+  const [location] = useState(useLocation());
 
   return (
     <Ul>
-      <Li ativo={location.pathname == "/" ? true : false}>
-        <LinkTo to="/">Incio</LinkTo>
-      </Li>
-      <Li ativo={location.pathname == "/linha" ? true : false}>
-        <LinkTo to="/linha">Linhas de pesquisa</LinkTo>
-      </Li>
-      <Li ativo={location.pathname == "/membros" ? true : false}>
-        <LinkTo to="/membros">Membros</LinkTo>
-      </Li>
-      <Li>
-        <LinkTo>Ferramentas</LinkTo>
-      </Li>
-      <Li>
-        <LinkTo to="/#contato">Contato</LinkTo>
-      </Li>
+      <LinkTo to="/">
+        <Li ativo={location.pathname === "/" ? true : false}>Incio</Li>
+      </LinkTo>
+      <LinkTo to="/linha">
+        <Li ativo={location.pathname === "/linha" ? true : false}>
+          Linhas de pesquisa
+        </Li>
+      </LinkTo>
+      <LinkTo to="/membros">
+        <Li ativo={location.pathname === "/membros" ? true : false}>Membros</Li>
+      </LinkTo>
+      <LinkTo to="/download">
+        <Li ativo={location.pathname === "/download" ? true : false}>
+          Download
+        </Li>
+      </LinkTo>
+      <LinkTo to={{ pathname: "/", hash: "#contato" }}>
+        <Li ativo={location.pathname === "/#contato" ? true : false}>
+          Contato
+        </Li>
+      </LinkTo>
     </Ul>
   );
 }

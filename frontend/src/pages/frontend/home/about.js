@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Theme from "../../../config/Theme";
+// import Theme from "../../../config/Theme";
 
 // estilos About
 export const ContainerAbout = styled.div`
