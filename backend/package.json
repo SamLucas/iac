@@ -4,18 +4,35 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "dev": "yarn nodemon src/index.js"
+    "dev": "yarn nodemon src/index.js",
+    "reset": "yarn sequelize db:drop && yarn sequelize db:create && yarn sequelize db:migrate",
+    "eslintify": "yarn eslint --fix src --ext .js"
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.9.1",
     "multer": "^1.4.2",
     "mysql2": "^2.1.0",
     "sequelize": "^5.21.3"
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^2.18.0",
+    "@typescript-eslint/parser": "^2.18.0",
+    "eslint": "^6.8.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-config-airbnb-base": "^14.0.0",
+    "eslint-config-prettier": "^6.10.0",
+    "eslint-import-resolver-typescript": "^2.0.0",
+    "eslint-plugin-import": "^2.20.0",
+    "eslint-plugin-prettier": "^3.1.2",
     "nodemon": "^2.0.2",
-    "sequelize-cli": "^5.5.1"
+    "prettier": "^1.19.1",
+    "sequelize-cli": "^5.5.1",
+    "sucrase": "^3.12.1",
+    "tsconfig-paths": "^3.9.0"
   }
 }

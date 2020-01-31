@@ -54,19 +54,19 @@ const DataCard = [
     icon: Team,
     name: "Membros",
     describe: "Conheça os nossos integrantes do grupo de pesquisa",
-    link: "http://localhost:91/IAC/iac_codeigniter/"
+    link: "/membros"
   },
   {
     icon: Download,
     name: "Downloads",
     describe: "Veja os projetos desenvolvidos pelo grupo de pesquisa IAC",
-    link: "http://localhost:91/IAC/iac_codeigniter/"
+    link: "/download"
   },
   {
     icon: LineSearch,
     name: "Linha de pesquisa",
     describe: "Confira as nossos papaers e linhas de pesquisa.",
-    link: "http://localhost:91/IAC/iac_codeigniter/"
+    link: "/linha"
   }
 ];
 
@@ -89,11 +89,13 @@ export default function home({ history }) {
 
         <Line>
           {DataCard.map(cont => (
-            <ContainerInfo>
-              <Image src={cont.icon} alt={cont.name} />
-              <Name>{cont.name}</Name>
-              <Describe>{cont.describe}</Describe>
-            </ContainerInfo>
+            <Linkto to={cont.link}>
+              <ContainerInfo>
+                <Image src={cont.icon} alt={cont.name} />
+                <Name>{cont.name}</Name>
+                <Describe>{cont.describe}</Describe>
+              </ContainerInfo>
+            </Linkto>
           ))}
         </Line>
 

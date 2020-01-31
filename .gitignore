@@ -1,1 +1,4 @@
 node_modules
+/backend/uploads/downloads/*
+/backend/uploads/members/*
+/backend/uploads/papers/*

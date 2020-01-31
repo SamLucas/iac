@@ -1,4 +1,4 @@
-const Tool = require("../Model/Tools");
+import Tool from "@/Model/Tools";
 
 module.exports = {
   async index(req, res) {

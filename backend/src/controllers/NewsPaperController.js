@@ -1,4 +1,4 @@
-const NewsPaper = require("../Model/NewsPaper");
+import NewsPaper from "@/Model/NewsPaper";
 
 module.exports = {
   async index(req, res) {

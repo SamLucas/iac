@@ -13,10 +13,10 @@ export default function Routes() {
     <BrowserRouter>
       <Switch>
         <Route path="/" exact component={Home} />
-        <Route path="/linha" component={LineSearch} />
-        <Route path="/membros" component={Members} />
-        <Route path="/news" component={News} />
-        <Route path="/Download" component={Download} />
+        <Route path="/linhas" exact component={LineSearch} />
+        <Route path="/membros" exact component={Members} />
+        <Route path="/news" exact component={News} />
+        <Route path="/Download" exact component={Download} />
         <Route path="*" component={Error404} />
       </Switch>
     </BrowserRouter>

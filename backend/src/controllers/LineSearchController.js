@@ -1,8 +1,10 @@
-const LineSearch = require("../Model/LineSearch");
+import LineSearch from "@/Model/LineSearch";
 
 module.exports = {
   async index(req, res) {
-    const linha = await LineSearch.findAll();
+    const linha = await LineSearch.findAll({
+      include: { association: "paper" }
+    });
     return res.json(linha);
   },
 

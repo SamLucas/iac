@@ -1,4 +1,4 @@
-const { Model, DataTypes } = require("sequelize");
+import { Model, DataTypes } from "sequelize";
 
 class Contact extends Model {
   static init(sequelize) {

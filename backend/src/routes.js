@@ -1,32 +1,44 @@
-const express = require("express");
-const routes = express.Router();
+import express from "express";
+import { Router } from "express";
+import path from "path";
+import multer from "multer";
 
-const verifyToken = require("./config/verifyToken");
-const multerConfig = require("./config/multer");
-const multer = require("multer");
+import verifyToken from "@/middlewares/verifyToken";
+import {
+  MulterConfigDownloads,
+  MulterConfigMembros,
+  MulterConfigPapers
+} from "@/middlewares/multer";
 
-const UserController = require("./Controller/UserController");
-const ToolController = require("./Controller/ToolController");
-const PaperController = require("./Controller/PaperController");
-const ContactController = require("./Controller/ContactController");
-const NewsPaperController = require("./Controller/NewsPaperController");
-const LineSearchController = require("./Controller/LineSearchController");
+const routes = new Router();
 
-// Usuarios
-routes.get("/usuarios", verifyToken, UserController.index);
-routes.get("/usuarios/:user_id", verifyToken, UserController.show);
-routes.delete("/usuarios", verifyToken, UserController.delete);
-routes.post("/login", UserController.login);
-routes.put(
-  "/usuarios",
-  multer(multerConfig).single("file"),
-  verifyToken,
-  UserController.update
-);
+import UserController from "@/Controller/UserController";
+import ToolController from "@/Controller/ToolController";
+import LoginController from "@/Controller/LoginController";
+import PaperController from "@/Controller/PaperController";
+import ContactController from "@/Controller/ContactController";
+import NewsPaperController from "@/Controller/NewsPaperController";
+import LineSearchController from "@/Controller/LineSearchController";
+
+// Rotas Publicas
+routes.post("/login", LoginController.login);
+routes.get("/usuarios", UserController.index);
+
 routes.post(
   "/usuarios",
-  multer(multerConfig).single("file"),
+  multer(MulterConfigMembros).single("file"),
   UserController.store
+);
+
+// routes.use(verifyToken);
+
+// Usuarios
+routes.get("/usuarios/:user_id", UserController.show);
+routes.delete("/usuarios", UserController.delete);
+routes.put(
+  "/usuarios",
+  multer(MulterConfigMembros).single("file"),
+  UserController.update
 );
 
 // Contatos
@@ -37,46 +49,49 @@ routes.put("/contact", ContactController.update);
 routes.delete("/contact", ContactController.delete);
 
 // Newspapaer
-routes.get("/noticias", verifyToken, NewsPaperController.index);
-routes.get("/noticias/:noticias_id", verifyToken, NewsPaperController.show);
-routes.post("/noticias", verifyToken, NewsPaperController.store);
-routes.put("/noticias", verifyToken, NewsPaperController.update);
-routes.delete("/noticias", verifyToken, NewsPaperController.delete);
+routes.get("/noticias", NewsPaperController.index);
+routes.get("/noticias/:noticias_id", NewsPaperController.show);
+routes.post("/noticias", NewsPaperController.store);
+routes.put("/noticias", NewsPaperController.update);
+routes.delete("/noticias", NewsPaperController.delete);
 
 // Ferramentas
-routes.get("/ferramentas", verifyToken, ToolController.index);
-routes.get("/ferramentas/:ferramenta_id", verifyToken, ToolController.show);
-routes.delete("/ferramentas", verifyToken, ToolController.delete);
+routes.get("/ferramentas", ToolController.index);
+routes.get("/ferramentas/:ferramenta_id", ToolController.show);
+routes.delete("/ferramentas", ToolController.delete);
 routes.post(
   "/ferramentas",
-  multer(multerConfig).single("file"),
-  verifyToken,
+  multer(MulterConfigDownloads).single("file"),
+
   ToolController.store
 );
 routes.put(
   "/ferramentas",
-  multer(multerConfig).single("file"),
-  verifyToken,
+  multer(MulterConfigDownloads).single("file"),
+
   ToolController.update
 );
 
 // Linha de pesquisa
-routes.get("/linhas", verifyToken, LineSearchController.index);
-routes.get("/linhas/:linha_id", verifyToken, LineSearchController.show);
-routes.post("/linhas", verifyToken, LineSearchController.store);
-routes.put("/linhas", verifyToken, LineSearchController.update);
-routes.delete("/linhas", verifyToken, LineSearchController.delete);
+routes.get("/linhas", LineSearchController.index);
+routes.get("/linhas/:linha_id", LineSearchController.show);
+routes.post("/linhas", LineSearchController.store);
+routes.put("/linhas", LineSearchController.update);
+routes.delete("/linhas", LineSearchController.delete);
 
 // Papper
-routes.get("/papers", verifyToken, PaperController.index);
-routes.get("/papers/:paper_id", verifyToken, PaperController.show);
-routes.post("/papers/:line_id", verifyToken, PaperController.store);
-routes.delete("/papers", verifyToken, PaperController.delete);
+routes.get("/papers", PaperController.index);
+routes.get("/papers/:paper_id", PaperController.show);
+routes.post(
+  "/papers/:line_id",
+  multer(MulterConfigPapers).single("file"),
+  PaperController.store
+);
+routes.delete("/papers", PaperController.delete);
 routes.put(
   "/papers",
-  multer(multerConfig).single("file"),
-  verifyToken,
+  multer(MulterConfigPapers).single("file"),
   PaperController.update
 );
 
-module.exports = routes;
+export default routes;

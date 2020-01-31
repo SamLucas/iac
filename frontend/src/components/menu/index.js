@@ -11,8 +11,8 @@ export default function Menu() {
       <LinkTo to="/">
         <Li ativo={location.pathname === "/" ? true : false}>Incio</Li>
       </LinkTo>
-      <LinkTo to="/linha">
-        <Li ativo={location.pathname === "/linha" ? true : false}>
+      <LinkTo to="/linhas">
+        <Li ativo={location.pathname === "/linhas" ? true : false}>
           Linhas de pesquisa
         </Li>
       </LinkTo>

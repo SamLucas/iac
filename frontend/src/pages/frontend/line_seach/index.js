@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import {
   Container,
@@ -17,13 +17,35 @@ import {
   HeaderDescribe,
   Table,
   Linha,
-  Coluna
+  Coluna,
+  LinkA
 } from "./styles";
 
 import Menu from "../../../components/menu";
+import Footer from "../../../components/footer";
+import api from "../../../services/api";
+import LoadComponet from "../../../components/loading";
 
 export default function LineSearch({ hystory }) {
-  return (
+  const [linhas, setLinhas] = useState([]);
+  const [linha, setLinha] = useState({});
+  const [papers, setPapers] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  async function loadMembros() {
+    setLoading(true);
+    const { data } = await api.get("/linhas");
+    setLinhas(data);
+    setLinha(data[0]);
+    setPapers(data[0].paper);
+    setLoading(false);
+  }
+
+  useEffect(() => loadMembros(), []);
+
+  return loading ? (
+    <LoadComponet />
+  ) : (
     <>
       <Menu hystory={hystory} />
       <Container>
@@ -32,42 +54,25 @@ export default function LineSearch({ hystory }) {
           <HeaderDescribe>Conheça nossas linhas de pesquisa</HeaderDescribe>
         </Header>
 
-        <ContainerLineSearch>
+        {/* <ContainerLineSearch>
           <Lista>
-            <Itens ativo>
-              <ItemName>Química Computacional</ItemName>
-              <ItemDescribe>Desenvolver e aplicar....</ItemDescribe>
-            </Itens>
-            <Itens>
-              <ItemName>Química Computacional</ItemName>
-              <ItemDescribe>Desenvolver e aplicar....</ItemDescribe>
-            </Itens>
-            <Itens>
-              <ItemName>Química Computacional</ItemName>
-              <ItemDescribe>Desenvolver e aplicar....</ItemDescribe>
-            </Itens>
-            <Itens>
-              <ItemName>Química Computacional</ItemName>
-              <ItemDescribe>Desenvolver e aplicar....</ItemDescribe>
-            </Itens>
+            {linhas.map(lin => (
+              <Itens
+                key={lin.id}
+                ativo={lin.id === linha.id}
+                onClick={() => setLinha(lin)}
+              >
+                <ItemName>{lin.titulo}</ItemName>
+                <ItemDescribe>{lin.texto.substr(0, 30) + "..."}</ItemDescribe>
+              </Itens>
+            ))}
           </Lista>
           <View>
-            <Name>Química Computacional</Name>
-            <Describe>
-              Química Computacional Desenvolver e aplicar ferramentas
-              computacionais de análise multivariada para tratamento de dados e
-              informações das ciências agrárias e de origem química
-              (Quimiometria). De maneira específica, trabalhar com técnicas de
-              mineração de dados e reconhecimento de padrões pela aplicação das
-              técnicas: HCA (Hierarquical Cluster Analysis), PLS (Partial Least
-              Square), PCA (Principal Component Analysis), Response Surface e
-              QSAR (Quantitative Structure Activity) para formação de clusters,
-              eliminação de sobreposições, otimização de processos e cálculos de
-              modelos matemáticos.
-            </Describe>
+            <Name>{linha.titulo}</Name>
+            <Describe>{linha.texto}</Describe>
             <Row>
               <ProfessoresTitle>Professor participante: </ProfessoresTitle>
-              <p>Prof. Dr. Ricardo Marques da Costa.</p>
+              {linha.professores}.
             </Row>
 
             <Table>
@@ -76,15 +81,32 @@ export default function LineSearch({ hystory }) {
                 <Coluna header>Autor</Coluna>
                 <Coluna header>Paper</Coluna>
               </Linha>
-              <Linha>
-                <Coluna>Effect of Endophytic Fungal Associations on t</Coluna>
-                <Coluna>Bruna A. S. Parpinelli,a Katia A. Siqueira,a </Coluna>
-                <Coluna>JBCS_2017_Vochysia.pdf</Coluna>
-              </Linha>
+              {papers.map(pap => (
+                <Linha>
+                  <Coluna>{pap.nome}</Coluna>
+                  <Coluna>{pap.autor}</Coluna>
+                  <Coluna>
+                    <LinkA
+                      href={`http://localhost:3333/download/papers/${pap.paper_url}`}
+                      download
+                    >
+                      {pap.paper_url.length > 20
+                        ? `${pap.paper_url.substr(0, 10) +
+                            "..." +
+                            pap.paper_url.substr(
+                              pap.paper_url.length - 10,
+                              pap.paper_url.length
+                            )}`
+                        : `${pap.paper_url.length}`}
+                    </LinkA>
+                  </Coluna>
+                </Linha>
+              ))}
             </Table>
           </View>
-        </ContainerLineSearch>
+        </ContainerLineSearch> */}
       </Container>
+      <Footer />;
     </>
   );
 }

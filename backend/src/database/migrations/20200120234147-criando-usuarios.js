@@ -15,18 +15,18 @@ module.exports = {
       },
       email: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: true
       },
       senha: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: true
       },
       tipo: {
         type: Sequelize.BOOLEAN,
         allowNull: false
       },
       descricao: {
-        type: Sequelize.STRING,
+        type: Sequelize.TEXT("long"),
         allowNull: false
       },
       lattes: {
@@ -35,7 +35,7 @@ module.exports = {
       },
       foto_url: {
         type: Sequelize.STRING,
-        allowNull: false
+        allowNull: true
       },
       created_at: {
         type: Sequelize.DATE,

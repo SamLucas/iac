@@ -1,4 +1,4 @@
-const { Model, DataTypes } = require("sequelize");
+import { Model, DataTypes } from "sequelize";
 
 class LineSearch extends Model {
   static init(sequelize) {
@@ -8,7 +8,7 @@ class LineSearch extends Model {
         texto: DataTypes.STRING,
         professores: DataTypes.STRING
       },
-      { sequelize }
+      { sequelize, tableName: "line_search" }
     );
   }
 

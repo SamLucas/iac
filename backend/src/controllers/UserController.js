@@ -1,5 +1,4 @@
-const User = require("../Model/User");
-const jwt = require("jsonwebtoken");
+import User from "@/Model/User";
 
 module.exports = {
   async index(req, res) {
@@ -15,7 +14,7 @@ module.exports = {
 
   async store(req, res) {
     const { name, email, senha, tipo, descricao, lattes } = req.body;
-    const foto_url = req.file.filename;
+    const foto_url = req.file ? req.file.filename : null;
 
     const data = { name, email, senha, tipo, descricao, lattes, foto_url };
     let user = User.findOne({ email });
@@ -41,19 +40,5 @@ module.exports = {
     const { id } = req.query;
     await User.destroy({ where: { id } });
     return res.json();
-  },
-
-  async login(req, res) {
-    const { email, senha } = req.body;
-    const user = await User.findOne({ email, senha });
-
-    if (user) {
-      jwt.sign({ user }, "secretkey", { expiresIn: "3h" }, (err, token) => {
-        return res.json({
-          token,
-          user
-        });
-      });
-    }
   }
 };

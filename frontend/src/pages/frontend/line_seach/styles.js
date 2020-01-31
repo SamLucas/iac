@@ -74,3 +74,11 @@ export const Coluna = styled.td`
   /* border-right: 1px solid ${Theme.first}; */
   padding: 10px;
 `;
+
+export const LinkA = styled.a`
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.7);
+  &:hover {
+    text-decoration: underline;
+  }
+`;

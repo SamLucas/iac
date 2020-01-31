@@ -1,4 +1,4 @@
-const Paper = require("../Model/Paper");
+import Paper from "@/Model/Paper";
 
 module.exports = {
   async index(req, res) {

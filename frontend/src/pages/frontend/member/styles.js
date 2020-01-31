@@ -56,12 +56,15 @@ export const ImageProf = styled.img`
 
 export const Describe = styled.div`
   text-align: justify;
+  margin-bottom: 20px;
 `;
 
-export const LinkLattes = styled.div`
+export const LinkLattes = styled.a`
   color: ${Theme.first};
+  text-decoration: none;
+
   font-weight: bold;
-  margin: 20px 0px;
+
   cursor: pointer;
 `;
 

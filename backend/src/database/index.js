@@ -1,15 +1,16 @@
-const Sequelize = require("sequelize");
-const dbconfig = require("../config/database");
+import Sequelize from "sequelize";
+import dbconfig from "@/config/database";
 
 const connection = new Sequelize(dbconfig);
 
 // import models
-const User = require("../Model/User");
-const Tool = require("../Model/Tools");
-const Paper = require("../Model/Paper");
-const Contact = require("../Model/Contact");
-const NewsPaper = require("../Model/NewsPaper");
-const LineSearch = require("../Model/LineSearch");
+
+import User from "@/models/User";
+import Tool from "@/models/Tools";
+import Paper from "@/models/Paper";
+import Contact from "@/models/Contact";
+import NewsPaper from "@/models/NewsPaper";
+import LineSearch from "@/models/LineSearch";
 
 // inciando funções
 Tool.init(connection);
@@ -22,4 +23,4 @@ LineSearch.init(connection);
 LineSearch.associate(connection);
 Paper.associate(connection);
 
-module.exports = connection;
+export default connection;

@@ -1,4 +1,4 @@
-const Contact = require("../Model/Contact");
+import Contact from "@/models/Contact";
 
 module.exports = {
   async index(req, res) {
