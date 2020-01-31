@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Theme from "../../../config/Theme";
+import Theme from "src/config/Theme";
 
 // estilos contato
 export const ContainerContact = styled.div`
@@ -31,7 +31,7 @@ export const ContentDescribe = styled.div``;
 
 export const Mensage = styled.div``;
 
-export const Form = styled.div`
+export const Form = styled.form`
   display: flex;
   flex-direction: column;
   padding: 20px 0px;
@@ -59,9 +59,11 @@ export const ContactTitle = styled.p`
   margin: 5px 0px 10px;
 `;
 
-export const ContatoDescribe = styled.p``;
+export const ContatoDescribe = styled.p`
+  width: 60%;
+`;
 
-export const Button = styled.a`
+export const Button = styled.button`
   color: white;
   display: flex;
   flex: 1;
@@ -70,4 +72,7 @@ export const Button = styled.a`
   background-color: ${Theme.first};
   justify-content: center;
   font-weight: bold;
+  cursor: pointer;
+  outline: 0;
+  border-color: none;
 `;

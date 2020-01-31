@@ -8,29 +8,13 @@ import {
   IdentifySession
 } from "./styles";
 
-// estilos contato
-import {
-  ContainerContact,
-  Info,
-  ContactTitle,
-  ContatoDescribe,
-  Row,
-  Button,
-  ContentInfo,
-  ContentTittle,
-  ContentDescribe,
-  Mensage,
-  Form,
-  TextInput,
-  TextInputArea
-} from "./contato";
-
 import { Linkto } from "./news/styles";
 
 import { ContainerInfo, Line, Name, Describe, Image } from "./cardinfo";
 import { ContainerAbout, TitleAbout, DescribeAbout, ImageAbout } from "./about";
 
 import ContainerNews from "./news";
+import ContainerContact from "./contact";
 
 import Menu from "../../../components/menu";
 
@@ -114,49 +98,8 @@ export default function home({ history }) {
           <ImageAbout src={About} />
         </ContainerAbout>
 
-        <ContainerNews></ContainerNews>
-
-        <ContainerContact id="contato">
-          <IdentifySession>Contato</IdentifySession>
-          <ContactTitle>Entre em contato!</ContactTitle>
-          <ContatoDescribe>
-            Todas as nossas formas de contato estão aqui em baixo, use a que
-            melhor se encaixa com você!
-          </ContatoDescribe>
-          <Row>
-            <Mensage>
-              <IdentifySession>Envie uma mensagem</IdentifySession>
-              <Form>
-                <TextInput placeholder={"Seu nome completo..."} />
-                <TextInput placeholder={"Seu melhor email..."} />
-                <TextInput placeholder={"Digite o assunto..."} />
-                <TextInputArea
-                  placeholder={"Digite sua mensagem..."}
-                  row="10"
-                />
-              </Form>
-              <Button>Enviar</Button>
-            </Mensage>
-            <Info>
-              <IdentifySession>Informações para contato</IdentifySession>
-
-              <ContentInfo>
-                <ContentTittle>Onde nos encontrar</ContentTittle>
-                <ContentDescribe>
-                  Estrada de Muzambinho, Bairro - Morro Preto, Muzambinho - MG,
-                  37890-000
-                </ContentDescribe>
-              </ContentInfo>
-
-              <ContentInfo>
-                <ContentTittle>Envie um email para</ContentTittle>
-                <ContentDescribe>
-                  ricardo.marques@muz.ifsuldeminas.edu.br
-                </ContentDescribe>
-              </ContentInfo>
-            </Info>
-          </Row>
-        </ContainerContact>
+        <ContainerNews />
+        <ContainerContact />
       </Container>
     </>
   );
