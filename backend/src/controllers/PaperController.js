@@ -1,4 +1,4 @@
-import Paper from "@/Model/Paper";
+import Paper from "@/models/Paper";
 
 module.exports = {
   async index(req, res) {
@@ -16,7 +16,6 @@ module.exports = {
     const { line_id } = req.params;
     const { nome, autor, descricao } = req.body;
     const paper_url = req.file.filename;
-
     const data = { nome, autor, descricao, line_id, paper_url };
 
     const new_papper = await Paper.create(data);
@@ -33,7 +32,12 @@ module.exports = {
 
   async delete(req, res) {
     const { id } = req.query;
-    await Paper.destroy({ where: { id } });
+    if (id > 0) await Paper.destroy({ where: { id } });
+    else
+      await Paper.destroy({
+        where: {},
+        truncate: true
+      });
     return res.json();
   }
 };

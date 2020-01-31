@@ -56,13 +56,18 @@ export const Name = styled.p`
 
 export const Describe = styled.div`
   text-align: justify;
+  margin-bottom: 30px;
 `;
 
-export const LinkLattes = styled.div`
+export const LinkLattes = styled.a`
   color: ${Theme.first};
   font-weight: bold;
-  margin: 20px 0px;
+  text-decoration: none;
   cursor: pointer;
+
+  &:hover {
+    text-decoration: underline;
+  }
 `;
 
 export const ContainerLineSearch = styled.div`

@@ -14,7 +14,7 @@ module.exports = {
         allowNull: false
       },
       texto: {
-        type: Sequelize.STRING,
+        type: Sequelize.TEXT("long"),
         allowNull: false
       },
       professores: {

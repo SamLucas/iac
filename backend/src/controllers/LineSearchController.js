@@ -1,4 +1,4 @@
-import LineSearch from "@/Model/LineSearch";
+import LineSearch from "@/models/LineSearch";
 
 module.exports = {
   async index(req, res) {

@@ -1,5 +1,5 @@
-import User from "@/Model/User";
-import jwtc from "jsonwebtoken";
+import User from "@/models/User";
+import jwt from "jsonwebtoken";
 
 module.exports = {
   async login(req, res) {

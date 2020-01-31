@@ -1,4 +1,4 @@
-const configs = {
+module.exports = {
   dialect: "mysql",
   host: process.env.DB_HOST,
   port: process.env.DB_PORT,
@@ -9,12 +9,4 @@ const configs = {
     timestamps: true,
     underscored: true
   }
-};
-
-console.log(configs);
-
-module.exports = {
-  development: { ...configs },
-  production: { ...configs },
-  test: { ...configs }
 };

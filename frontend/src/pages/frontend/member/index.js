@@ -25,13 +25,15 @@ export default function Member({ hystory }) {
   const [membros, setMembros] = useState([]);
   const [membro, setMembro] = useState({});
 
-  async function loadMembros() {
-    const { data } = await api.get("/usuarios");
-    setMembro(data[0]);
-    setMembros(data);
-  }
+  useEffect(() => {
+    async function loadMembros() {
+      const response = await api.get("/usuarios");
 
-  useEffect(() => loadMembros(), []);
+      setMembro(response.data[0]);
+      setMembros(response.data);
+    }
+    loadMembros();
+  }, []);
 
   return (
     <>
@@ -41,11 +43,12 @@ export default function Member({ hystory }) {
           <HeaderTitle>Membros</HeaderTitle>
           <HeaderDescribe>Conheça os nossos membros</HeaderDescribe>
         </Header>
-        {/* 
+
         <ContainerLineSearch>
           <Lista>
             {membros.map(mem => (
               <Itens
+                key={mem.id}
                 ativo={mem.id === membro.id}
                 onClick={() => setMembro(mem)}
               >
@@ -62,7 +65,7 @@ export default function Member({ hystory }) {
               <ImageProf
                 src={
                   membro.foto_url != null
-                    ? `http://localhost:3333/files/${membro.foto_url}`
+                    ? `http://localhost:3333/files/members/${membro.foto_url}`
                     : "https://picsum.photos/300/400"
                 }
               />
@@ -74,7 +77,7 @@ export default function Member({ hystory }) {
               </div>
             </Row>
           </View>
-        </ContainerLineSearch> */}
+        </ContainerLineSearch>
       </Container>
     </>
   );

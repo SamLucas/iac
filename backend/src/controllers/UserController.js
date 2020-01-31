@@ -1,4 +1,4 @@
-import User from "@/Model/User";
+import User from "@/models/User";
 
 module.exports = {
   async index(req, res) {

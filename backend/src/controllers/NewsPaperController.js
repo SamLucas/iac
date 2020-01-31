@@ -1,4 +1,4 @@
-import NewsPaper from "@/Model/NewsPaper";
+import NewsPaper from "@/models/NewsPaper";
 
 module.exports = {
   async index(req, res) {

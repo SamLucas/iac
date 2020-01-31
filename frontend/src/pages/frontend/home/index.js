@@ -89,7 +89,7 @@ export default function home({ history }) {
 
         <Line>
           {DataCard.map(cont => (
-            <Linkto to={cont.link}>
+            <Linkto to={cont.link} key={cont.link}>
               <ContainerInfo>
                 <Image src={cont.icon} alt={cont.name} />
                 <Name>{cont.name}</Name>

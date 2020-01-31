@@ -22,7 +22,7 @@ module.exports = {
         allowNull: false
       },
       mensagem: {
-        type: Sequelize.STRING,
+        type: Sequelize.TEXT("long"),
         allowNull: false
       },
       created_at: {

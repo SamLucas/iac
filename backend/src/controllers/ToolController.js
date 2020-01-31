@@ -1,4 +1,4 @@
-import Tool from "@/Model/Tools";
+import Tool from "@/models/Tools";
 
 module.exports = {
   async index(req, res) {

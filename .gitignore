@@ -1,4 +1,7 @@
 node_modules
-/backend/uploads/downloads/*
-/backend/uploads/members/*
-/backend/uploads/papers/*
+*.pdf
+*.jpg
+*.jpeg
+*.png
+*.gif
+*torrent

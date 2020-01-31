@@ -32,16 +32,24 @@ export default function LineSearch({ hystory }) {
   const [papers, setPapers] = useState([]);
   const [loading, setLoading] = useState(false);
 
-  async function loadMembros() {
+  useEffect(() => {
     setLoading(true);
-    const { data } = await api.get("/linhas");
-    setLinhas(data);
-    setLinha(data[0]);
-    setPapers(data[0].paper);
-    setLoading(false);
-  }
 
-  useEffect(() => loadMembros(), []);
+    async function loadMembros() {
+      const response = await api.get("/linhas");
+      setLinhas(response.data);
+      setLinha(response.data[0]);
+      setPapers(response.data[0]?.paper);
+    }
+    loadMembros();
+
+    setLoading(false);
+  }, []);
+
+  const handleToggleLine = linha => {
+    setLinha(linha);
+    setPapers(linha.paper);
+  };
 
   return loading ? (
     <LoadComponet />
@@ -54,19 +62,20 @@ export default function LineSearch({ hystory }) {
           <HeaderDescribe>Conheça nossas linhas de pesquisa</HeaderDescribe>
         </Header>
 
-        {/* <ContainerLineSearch>
+        <ContainerLineSearch>
           <Lista>
             {linhas.map(lin => (
               <Itens
                 key={lin.id}
                 ativo={lin.id === linha.id}
-                onClick={() => setLinha(lin)}
+                onClick={() => handleToggleLine(lin)}
               >
                 <ItemName>{lin.titulo}</ItemName>
                 <ItemDescribe>{lin.texto.substr(0, 30) + "..."}</ItemDescribe>
               </Itens>
             ))}
           </Lista>
+
           <View>
             <Name>{linha.titulo}</Name>
             <Describe>{linha.texto}</Describe>
@@ -76,35 +85,39 @@ export default function LineSearch({ hystory }) {
             </Row>
 
             <Table>
-              <Linha>
-                <Coluna header>Nome</Coluna>
-                <Coluna header>Autor</Coluna>
-                <Coluna header>Paper</Coluna>
-              </Linha>
-              {papers.map(pap => (
+              <thead>
                 <Linha>
-                  <Coluna>{pap.nome}</Coluna>
-                  <Coluna>{pap.autor}</Coluna>
-                  <Coluna>
-                    <LinkA
-                      href={`http://localhost:3333/download/papers/${pap.paper_url}`}
-                      download
-                    >
-                      {pap.paper_url.length > 20
-                        ? `${pap.paper_url.substr(0, 10) +
-                            "..." +
-                            pap.paper_url.substr(
-                              pap.paper_url.length - 10,
-                              pap.paper_url.length
-                            )}`
-                        : `${pap.paper_url.length}`}
-                    </LinkA>
-                  </Coluna>
+                  <Coluna header>Nome</Coluna>
+                  <Coluna header>Autor</Coluna>
+                  <Coluna header>Paper</Coluna>
                 </Linha>
-              ))}
+              </thead>
+              <tbody>
+                {papers.map(pap => (
+                  <Linha key={pap}>
+                    <Coluna>{pap.nome}</Coluna>
+                    <Coluna>{pap.autor}</Coluna>
+                    <Coluna>
+                      <LinkA
+                        href={`http://localhost:3333/download/papers/${pap.paper_url}`}
+                        download
+                      >
+                        {pap.paper_url.length > 20
+                          ? `${pap.paper_url.substr(0, 10) +
+                              "..." +
+                              pap.paper_url.substr(
+                                pap.paper_url.length - 10,
+                                pap.paper_url.length
+                              )}`
+                          : `${pap.paper_url}`}
+                      </LinkA>
+                    </Coluna>
+                  </Linha>
+                ))}
+              </tbody>
             </Table>
           </View>
-        </ContainerLineSearch> */}
+        </ContainerLineSearch>
       </Container>
       <Footer />;
     </>

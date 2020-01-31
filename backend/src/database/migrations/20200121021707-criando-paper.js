@@ -18,7 +18,7 @@ module.exports = {
         allowNull: false
       },
       descricao: {
-        type: Sequelize.STRING,
+        type: Sequelize.TEXT("long"),
         allowNull: false
       },
       paper_url: {
