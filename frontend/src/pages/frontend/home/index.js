@@ -25,29 +25,19 @@ import {
   TextInputArea
 } from "./contato";
 
-import {
-  ContainerNew,
-  ImageSeach,
-  ContainerNews,
-  NewsTitle,
-  ContainerNewsTitle,
-  ContainerNewsDescribe,
-  ContainerPagination,
-  NumberPagination,
-  CotentNews,
-  Linkto
-} from "./NewsStyle";
+import { Linkto } from "./news/styles";
 
 import { ContainerInfo, Line, Name, Describe, Image } from "./cardinfo";
 import { ContainerAbout, TitleAbout, DescribeAbout, ImageAbout } from "./about";
+
+import ContainerNews from "./news";
 
 import Menu from "../../../components/menu";
 
 import LineSearch from "../../../assets/svgs/LineSearch.svg";
 import Download from "../../../assets/svgs/Download.svg";
 import About from "../../../assets/svgs/About.svg";
-import Team from "../../../assets/svgs/Team.svg";
-import News from "../../../assets/svgs/News.svg";
+import Team from "src/assets/svgs/Team.svg";
 
 const DataCard = [
   {
@@ -86,7 +76,6 @@ export default function home({ history }) {
           </DescribeHeader>
           <Link>Saiba mais</Link>
         </Header>
-
         <Line>
           {DataCard.map(cont => (
             <Linkto to={cont.link} key={cont.link}>
@@ -98,47 +87,6 @@ export default function home({ history }) {
             </Linkto>
           ))}
         </Line>
-
-        <ContainerNew>
-          <ImageSeach src={News} />
-          <ContainerNews>
-            <IdentifySession>Noticias</IdentifySession>
-            <NewsTitle>Nossas noticias</NewsTitle>
-            <Linkto to="/news">
-              <CotentNews>
-                <ContainerNewsTitle>
-                  Astronauta Marcos Pontes será ministro da Ciência do governo
-                  Bolsonaro
-                </ContainerNewsTitle>
-                <ContainerNewsDescribe>
-                  Rio de Janeiro e São Paulo O presidente eleito, Jair Bolsonaro
-                  (PSL), anunciou no Twitter o astronauta Marcos Pontes como
-                  futuro ministro da
-                </ContainerNewsDescribe>
-              </CotentNews>
-            </Linkto>
-            <Linkto to="/news">
-              <CotentNews>
-                <ContainerNewsTitle>
-                  Astronauta Marcos Pontes será ministro da Ciência do governo
-                  Bolsonaro
-                </ContainerNewsTitle>
-                <ContainerNewsDescribe>
-                  Rio de Janeiro e São Paulo O presidente eleito, Jair Bolsonaro
-                  (PSL), anunciou no Twitter o astronauta Marcos Pontes como
-                  futuro ministro da
-                </ContainerNewsDescribe>
-              </CotentNews>
-            </Linkto>
-            <ContainerPagination>
-              <NumberPagination ativo> {"<"} </NumberPagination>
-              <NumberPagination ativo>1</NumberPagination>
-              <NumberPagination>2</NumberPagination>
-              <NumberPagination ativo> > </NumberPagination>
-            </ContainerPagination>
-          </ContainerNews>
-        </ContainerNew>
-
         <ContainerAbout>
           <div>
             <IdentifySession>Sobre-nós</IdentifySession>
@@ -165,6 +113,8 @@ export default function home({ history }) {
           </div>
           <ImageAbout src={About} />
         </ContainerAbout>
+
+        <ContainerNews></ContainerNews>
 
         <ContainerContact id="contato">
           <IdentifySession>Contato</IdentifySession>
