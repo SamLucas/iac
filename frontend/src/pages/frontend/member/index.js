@@ -19,6 +19,7 @@ import {
 } from "./styles";
 
 import Menu from "../../../components/menu";
+import Footer from "src/components/footer";
 import api from "../../../services/api";
 
 export default function Member({ hystory }) {
@@ -79,6 +80,7 @@ export default function Member({ hystory }) {
           </View>
         </ContainerLineSearch>
       </Container>
+      <Footer />
     </>
   );
 }

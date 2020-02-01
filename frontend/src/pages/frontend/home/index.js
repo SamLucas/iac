@@ -16,7 +16,8 @@ import { ContainerAbout, TitleAbout, DescribeAbout, ImageAbout } from "./about";
 import ContainerNews from "./news";
 import ContainerContact from "./contact";
 
-import Menu from "../../../components/menu";
+import Menu from "src/components/menu";
+import Footer from "src/components/footer";
 
 import LineSearch from "../../../assets/svgs/LineSearch.svg";
 import Download from "../../../assets/svgs/Download.svg";
@@ -100,6 +101,7 @@ export default function home({ history }) {
 
         <ContainerNews />
         <ContainerContact />
+        <Footer />
       </Container>
     </>
   );

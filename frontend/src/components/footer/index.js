@@ -1,11 +1,14 @@
 import React from "react";
 
-import { Copyright } from "./styles";
+import { Copyright, Container, ImageIf } from "./styles";
 
 export default function footer() {
   return (
-    <Copyright>
-      © Copyright 2020 - Desenvolvido por Samuel Lucas e Naiara Gaspar - Login
-    </Copyright>
+    <Container>
+      <ImageIf src={require("src/assets/logo_if.png")} />
+      <Copyright>
+        © Copyright 2020 - Desenvolvido por Samuel Lucas e Naiara Gaspar - Login
+      </Copyright>
+    </Container>
   );
 }

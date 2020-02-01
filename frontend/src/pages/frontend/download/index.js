@@ -16,6 +16,7 @@ import {
 } from "./styles";
 
 import Menu from "../../../components/menu";
+import Footer from "src/components/footer";
 
 export default function Member({ hystory }) {
   const [files, setFiles] = useState([]);
@@ -67,6 +68,7 @@ export default function Member({ hystory }) {
           </View>
         </ContainerLineSearch>
       </Container>
+      <Footer />
     </>
   );
 }
