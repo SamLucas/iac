@@ -59,7 +59,7 @@ export default function Member({ hystory }) {
             <Name>{file.titulo} </Name>
             <Describe>{file.descricao}</Describe>
             <LinkLattes
-              href={`http://localhost:3333/download/downloads/${file.ferramenta_url}`}
+              href={`${process.env.REACT_APP_API_URL}/download/downloads/${file.ferramenta_url}`}
               download
               target="_blanck"
             >

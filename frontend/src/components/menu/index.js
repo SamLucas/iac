@@ -25,9 +25,7 @@ export default function Menu() {
         </Li>
       </LinkTo>
       <LinkTo to={{ pathname: "/", hash: "#contato" }}>
-        <Li ativo={location.pathname === "/#contato" ? true : false}>
-          Contato
-        </Li>
+        <Li>Contato</Li>
       </LinkTo>
     </Ul>
   );

@@ -23,6 +23,7 @@ import LineSearch from "../../../assets/svgs/LineSearch.svg";
 import Download from "../../../assets/svgs/Download.svg";
 import About from "../../../assets/svgs/About.svg";
 import Team from "src/assets/svgs/Team.svg";
+import { useEffect } from "react";
 
 const DataCard = [
   {
@@ -45,7 +46,18 @@ const DataCard = [
   }
 ];
 
-export default function home({ history }) {
+export default function Home({ history }) {
+  useEffect(() => {
+    const hash = history.location.hash;
+    if (hash && document.getElementById(hash.substr(1))) {
+      history.replace("/");
+
+      document
+        .getElementById(hash.substr(1))
+        .scrollIntoView({ behavior: "smooth" });
+    }
+  }, [history.location.hash, history]);
+
   return (
     <>
       <Menu history={history} />

@@ -67,12 +67,11 @@ export const Button = styled.button`
   color: white;
   display: flex;
   flex: 1;
-  border-radius: 25px;
+  border-radius: 10px;
   padding: 15px;
   background-color: ${Theme.first};
   justify-content: center;
   font-weight: bold;
   cursor: pointer;
-  outline: 0;
-  border-color: none;
+  border-width: 0px;
 `;

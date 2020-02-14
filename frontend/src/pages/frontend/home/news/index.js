@@ -65,7 +65,7 @@ export default function News() {
 
   useEffect(() => {
     if (pages.length > 0) setNews(pages[index]);
-  }, [index]);
+  }, [pages, index]);
 
   const handlePrev = () =>
     setIndex(state => (state - 1 < 0 ? state : state - 1));

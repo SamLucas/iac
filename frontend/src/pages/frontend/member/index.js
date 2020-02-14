@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
-
+import { Container } from "src/config/DefaultStyle";
 import {
-  Container,
   Lista,
   Itens,
   ItemName,
@@ -66,7 +65,7 @@ export default function Member({ hystory }) {
               <ImageProf
                 src={
                   membro.foto_url != null
-                    ? `http://localhost:3333/files/members/${membro.foto_url}`
+                    ? `${process.env.REACT_APP_API_URL}/files/members/${membro.foto_url}`
                     : "https://picsum.photos/300/400"
                 }
               />

@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Theme from "src/config/Theme";
 
 export const Container = styled.div`
   display: flex;
@@ -8,7 +7,7 @@ export const Container = styled.div`
   padding: 40px 120px;
 `;
 
-export const Copyright = styled.p`
+export const Copyrightt = styled.p`
   padding: 0px 0px 0px 25px;
 `;
 

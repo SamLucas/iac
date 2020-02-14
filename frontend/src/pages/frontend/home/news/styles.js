@@ -1,9 +1,7 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import Theme from "src/config/Theme";
 import { Link } from "react-router-dom";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
-
-const buttonAtive = css``;
 
 export const ContainerIcon = styled.div`
   background-color: ${Theme.first};

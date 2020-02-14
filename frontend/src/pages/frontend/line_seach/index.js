@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
-
+import { Container } from "src/config/DefaultStyle";
 import {
-  Container,
   Lista,
   Itens,
   ItemName,
@@ -99,7 +98,7 @@ export default function LineSearch({ hystory }) {
                     <Coluna>{pap.autor}</Coluna>
                     <Coluna>
                       <LinkA
-                        href={`http://localhost:3333/download/papers/${pap.paper_url}`}
+                        href={`${process.env.REACT_APP_API_URL}/download/papers/${pap.paper_url}`}
                         download
                       >
                         {pap.paper_url.length > 20

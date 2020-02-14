@@ -1,12 +1,6 @@
 import React from "react";
-
-import {
-  Container,
-  Describe,
-  Header,
-  HeaderTitle,
-  HeaderDescribe
-} from "./styles";
+import { Container } from "src/config/DefaultStyle";
+import { Describe, Header, HeaderTitle, HeaderDescribe } from "./styles";
 
 import Menu from "../../../components/menu";
 
