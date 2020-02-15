@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter, Switch, Route } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 import Error404 from "./components/404";
 
@@ -13,25 +13,35 @@ import LineSearch from "./pages/frontend/line_seach";
 // Pages Backend
 import Login from "src/pages/backend/login";
 import Painel from "src/pages/backend/painel";
+import Textos from "src/pages/backend/textos";
+import Ferramentas from "src/pages/backend/ferramentas";
+import Noticias from "src/pages/backend/news";
+import Membros from "src/pages/backend/membros";
+import Linhas from "src/pages/backend/linhas";
 
-import verifyToken from "src/Utils/verifyToken";
+// import verifyAcess from "src/utils/verifyAcess";
 
-export default function Routes() {
+export default function Rotas() {
   return (
-    <BrowserRouter>
-      <Switch>
-        <Route path="/" exact component={Home} />
-        <Route path="/linhas" exact component={LineSearch} />
-        <Route path="/membros" exact component={Members} />
-        <Route path="/news" exact component={News} />
-        <Route path="/Download" exact component={Download} />
+    <Routes>
+      <Route path="*" element={<Error404 />} />
 
-        <Route path="/login" exact component={Login} />
+      {/* Frontend */}
+      <Route path="/" element={<Home />} />
+      <Route path="/linhas" element={<LineSearch />} />
+      <Route path="/membros" element={<Members />} />
+      <Route path="/news" element={<News />} />
+      <Route path="/download" element={<Download />} />
 
-        <Route path="/painel" exact component={() => verifyToken(Painel)} />
-
-        <Route path="*" component={Error404} />
-      </Switch>
-    </BrowserRouter>
+      {/* Backend */}
+      <Route path="/login" element={<Login />} />
+      <Route path="/painel" element={<Painel />}>
+        <Route path="/linhas" element={<Linhas />} />
+        <Route path="/membros" element={<Membros />} />
+        <Route path="/noticias" element={<Noticias />} />
+        <Route path="/textos" element={<Textos />} />
+        <Route path="/ferramentas" element={<Ferramentas />} />
+      </Route>
+    </Routes>
   );
 }

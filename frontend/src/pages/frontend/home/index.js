@@ -47,16 +47,16 @@ const DataCard = [
 ];
 
 export default function Home({ history }) {
-  useEffect(() => {
-    const hash = history.location.hash;
-    if (hash && document.getElementById(hash.substr(1))) {
-      history.replace("/");
+  // useEffect(() => {
+  //   const hash = history.location.hash;
+  //   if (hash && document.getElementById(hash.substr(1))) {
+  //     history.replace("/");
 
-      document
-        .getElementById(hash.substr(1))
-        .scrollIntoView({ behavior: "smooth" });
-    }
-  }, [history.location.hash, history]);
+  //     document
+  //       .getElementById(hash.substr(1))
+  //       .scrollIntoView({ behavior: "smooth" });
+  //   }
+  // }, [history.location.hash, history]);
 
   return (
     <>

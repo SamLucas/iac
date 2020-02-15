@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { useHistory } from "react-router-dom";
+// import { useHistory } from "react-router-dom";
 
 import api from "src/services/api";
 
@@ -13,12 +13,12 @@ export default function Login() {
   const [hiddenPass, setHiddenPass] = useState(false);
   const [hiddenButton, setHiddenButton] = useState(false);
 
-  let history = useHistory();
+  // let history = useHistory();
 
   const changeData = e => {
     const { name, value } = e.target;
 
-    name == "senha" && value != ""
+    name === "senha" && value !== ""
       ? setHiddenButton(true)
       : setHiddenButton(false);
 
@@ -33,7 +33,7 @@ export default function Login() {
       .post("/login", dataForm)
       .then(data => {
         localStorage.setItem("dataUser", JSON.stringify(data.data));
-        history.push("/painel");
+        // history.push("/painel");
       })
       .catch(data => alert("Login inválido!"));
   };

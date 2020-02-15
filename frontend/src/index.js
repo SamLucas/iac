@@ -1,13 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import Routes from "./routes";
+import Rotas from "./routes";
+
+import { BrowserRouter as Routes } from "react-router-dom";
 
 import { ThemeProvider } from "styled-components";
 import Theme from "src/config/Theme";
 
 const App = () => (
   <ThemeProvider theme={Theme}>
-    <Routes />
+    <Routes>
+      <Rotas />
+    </Routes>
   </ThemeProvider>
 );
 

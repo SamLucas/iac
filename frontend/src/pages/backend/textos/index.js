@@ -1,12 +1,11 @@
 import React from "react";
-import { ContainerSwitch } from "src/config/DefaultStyle";
-import { Outlet } from "react-router-dom";
 
-export default function Painel() {
+import { ContainerSwitch } from "src/config/DefaultStyle";
+
+export default function textos() {
   return (
     <ContainerSwitch>
-      <h1>Painel</h1>
-      <Outlet />
+      <h1>Textos</h1>
     </ContainerSwitch>
   );
 }

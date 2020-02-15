@@ -26,3 +26,11 @@ export const InputGeneric = styled.input`
   background-color: ${props => props.theme.colors.background};
   border-radius: 10px;
 `;
+
+export const ContainerSwitch = styled.div`
+  width: 79%;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 15px;
+  padding: 20px;
+`;

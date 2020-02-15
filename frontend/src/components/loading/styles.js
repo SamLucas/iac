@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Theme from "../../config/Theme";
 import ReactLoading from "react-loading";
 
 export const Container = styled.div`
