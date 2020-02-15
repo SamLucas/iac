@@ -15,11 +15,11 @@ export const Mensagem = styled.p`
   font-size: 16px;
 `;
 
-export const LoadComponet = styled(ReactLoading).attrs({
-  color: Theme.first,
+export const LoadComponet = styled(ReactLoading).attrs(props => ({
+  color: props.theme.colors.first,
   height: 100,
   width: 100,
   type: "bars"
-})`
+}))`
   margin-bottom: 40px;
 `;

@@ -69,7 +69,7 @@ export const Button = styled.button`
   flex: 1;
   border-radius: 10px;
   padding: 15px;
-  background-color: ${Theme.first};
+  background-color: ${props => props.theme.first};
   justify-content: center;
   font-weight: bold;
   cursor: pointer;

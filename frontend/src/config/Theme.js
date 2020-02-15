@@ -1,7 +1,10 @@
 const Theme = {
-  first: "#009688",
-  second: "",
-  back: "rgba(0, 0, 0, 0.07)"
+  colors: {
+    first: "#009688",
+    second: "",
+    background: "rgba(0, 0, 0, 0.07)"
+  },
+  fonts: []
 };
 
 export default Theme;
