@@ -19,7 +19,7 @@ import Noticias from "src/pages/backend/news";
 import Membros from "src/pages/backend/membros";
 import Linhas from "src/pages/backend/linhas";
 
-// import verifyAcess from "src/utils/verifyAcess";
+import verifyAcess from "src/utils/verifyAcess";
 
 export default function Rotas() {
   return (
@@ -35,7 +35,7 @@ export default function Rotas() {
 
       {/* Backend */}
       <Route path="/login" element={<Login />} />
-      <Route path="/painel" element={<Painel />}>
+      <Route path="/painel" element={verifyAcess(Painel)}>
         <Route path="/linhas" element={<Linhas />} />
         <Route path="/membros" element={<Membros />} />
         <Route path="/noticias" element={<Noticias />} />

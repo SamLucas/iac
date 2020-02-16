@@ -1,6 +1,8 @@
 import styled from "styled-components";
 import Theme from "./theme";
 
+import { GoPlus } from "react-icons/go";
+
 export const Container = styled.div`
   margin: 130px;
 `;
@@ -35,4 +37,20 @@ export const ContainerSwitch = styled.div`
   border-radius: 15px;
   margin-left: 20px;
   padding: 20px;
+`;
+
+export const ButtonAdd = styled(GoPlus)`
+  color: white;
+  background-color: ${Theme.colors.first};
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 20px;
+  padding: 15px;
+  text-align: center;
+  display: block;
+  position: fixed;
+  cursor: pointer;
+  right: 50px;
+  bottom: 50px;
 `;
