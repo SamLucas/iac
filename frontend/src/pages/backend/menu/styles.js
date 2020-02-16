@@ -1,5 +1,7 @@
 import styled, { css } from "styled-components";
 
+import { Link } from "react-router-dom";
+
 import { MdDashboard, MdTimeline } from "react-icons/md";
 import { FaToolbox, FaRegNewspaper, FaRegUserCircle } from "react-icons/fa";
 import { FiUsers } from "react-icons/fi";
@@ -10,10 +12,6 @@ import { GoTextSize } from "react-icons/go";
 const DefaultPropsIcons = css`
   font-size: 18px;
   margin: 15px;
-  /* color: ${props =>
-    props.atctive
-      ? props.theme.colors.first
-      : props.theme.colors.background}; */
 `;
 
 export const Container = styled.div`
@@ -37,6 +35,11 @@ export const Lista = styled.ul`
       color: white;
     }
   }
+`;
+
+export const LinkPerson = styled(Link)`
+  text-decoration: none;
+  color: black;
 `;
 
 export const Profile = styled.div`

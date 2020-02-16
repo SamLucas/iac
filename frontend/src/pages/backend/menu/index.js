@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-// import { useHistory } from "react-router-dom";
 
 import {
   Container,
@@ -14,7 +13,8 @@ import {
   IconSite,
   IconLogout,
   IconText,
-  Lista
+  Lista,
+  LinkPerson
 } from "./styles";
 
 import LoadingPage from "src/components/loading";
@@ -58,30 +58,42 @@ export default function MenuBackend() {
       </Profile>
 
       <Lista>
-        <li>
-          <IconDashBoard />
-          <p>Painel</p>
-        </li>
-        <li>
-          <IconText />
-          <p>Textos</p>
-        </li>
-        <li>
-          <IconFerramentas />
-          <p>Ferramentas</p>
-        </li>
-        <li>
-          <IconLinhaDePesquisa />
-          <p>Linhas de pesquisa</p>
-        </li>
-        <li>
-          <IconMembros />
-          <p>Membros</p>
-        </li>
-        <li>
-          <IconNoticias />
-          <p>Noticias</p>
-        </li>
+        <LinkPerson to="/painel">
+          <li>
+            <IconDashBoard />
+            <p>Painel</p>
+          </li>
+        </LinkPerson>
+        <LinkPerson to="textos">
+          <li>
+            <IconText />
+            <p>Textos</p>
+          </li>
+        </LinkPerson>
+        <LinkPerson to="ferramentas">
+          <li>
+            <IconFerramentas />
+            <p>Ferramentas</p>
+          </li>
+        </LinkPerson>
+        <LinkPerson to="linhas">
+          <li>
+            <IconLinhaDePesquisa />
+            <p>Linhas de pesquisa</p>
+          </li>
+        </LinkPerson>
+        <LinkPerson to="membros">
+          <li>
+            <IconMembros />
+            <p>Membros</p>
+          </li>
+        </LinkPerson>
+        <LinkPerson to="noticias">
+          <li>
+            <IconNoticias />
+            <p>Noticias</p>
+          </li>
+        </LinkPerson>
         <SeparateList />
         <li>
           <IconProfile />

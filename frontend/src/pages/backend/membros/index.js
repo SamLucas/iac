@@ -5,7 +5,7 @@ import { ContainerSwitch } from "src/config/defaultStyle";
 export default function textos() {
   return (
     <ContainerSwitch>
-      <h1>Ferramentas</h1>
+      <h1>Membros</h1>
     </ContainerSwitch>
   );
 }
