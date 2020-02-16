@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Theme from "../../../config/Theme";
 
 export const Container = styled.div`
   margin: 100px;
@@ -19,7 +18,7 @@ export const HeaderDescribe = styled.div`
 `;
 
 export const Lista = styled.div`
-  border-right: 1px solid ${Theme.first};
+  border-right: 1px solid ${props => props.theme.colors.first};
   padding-right: 30px;
 `;
 export const Itens = styled.div`
@@ -27,15 +26,15 @@ export const Itens = styled.div`
   padding: 10px;
   border-radius: 10px;
   color: ${props => (props.ativo ? "white" : "black")};
-  background-color: ${props => (props.ativo ? Theme.first : Theme.back)};
+  background-color: ${props =>
+    props.ativo ? props.theme.colors.first : props.theme.colors.back};
   cursor: pointer;
 `;
 
 export const ItemName = styled.h4``;
 export const ItemDescribe = styled.div`
-  color: color: ${props =>
+  color: ${props =>
     props.ativo ? "rgba(255, 255, 255, 0.2)" : "rgba(0, 0, 0, 0.6)"};
-  
 `;
 export const View = styled.div``;
 export const Name = styled.p`
@@ -54,7 +53,7 @@ export const Describe = styled.div`
 `;
 
 export const ProfessoresTitle = styled.div`
-  color: ${Theme.first};
+  color: ${props => props.theme.colors.first};
   font-weight: bold;
   margin-right: 5px;
 `;
@@ -71,7 +70,7 @@ export const Table = styled.table`
 export const Linha = styled.tr``;
 export const Coluna = styled.td`
   background-color: ${props => (props.header ? "rgba(0,0,0,0.06)" : "wihte")};
-  /* border-right: 1px solid ${Theme.first}; */
+
   padding: 10px;
 `;
 

@@ -23,7 +23,7 @@ import LineSearch from "../../../assets/svgs/LineSearch.svg";
 import Download from "../../../assets/svgs/Download.svg";
 import About from "../../../assets/svgs/About.svg";
 import Team from "src/assets/svgs/Team.svg";
-import { useEffect } from "react";
+// import { useEffect } from "react";
 
 const DataCard = [
   {

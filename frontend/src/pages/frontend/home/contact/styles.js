@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Theme from "src/config/Theme";
 
 // estilos contato
 export const ContainerContact = styled.div`
@@ -41,7 +40,7 @@ export const TextInput = styled.input`
   margin: 10px 0px;
   padding: 15px;
   border: 0;
-  background-color: ${Theme.back};
+  background-color: ${props => props.theme.colors.background};
   border-radius: 10px;
 `;
 
@@ -49,7 +48,7 @@ export const TextInputArea = styled.textarea`
   margin: 10px 0px;
   padding: 10px;
   border: 0;
-  background-color: ${Theme.back};
+  background-color: ${props => props.theme.colors.background};
   border-radius: 10px;
   height: 150px;
 `;
@@ -61,17 +60,4 @@ export const ContactTitle = styled.p`
 
 export const ContatoDescribe = styled.p`
   width: 60%;
-`;
-
-export const Button = styled.button`
-  color: white;
-  display: flex;
-  flex: 1;
-  border-radius: 10px;
-  padding: 15px;
-  background-color: ${props => props.theme.first};
-  justify-content: center;
-  font-weight: bold;
-  cursor: pointer;
-  border-width: 0px;
 `;

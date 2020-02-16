@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Theme from "./theme";
 
 export const Container = styled.div`
   margin: 130px;
@@ -12,7 +13,7 @@ export const InputSubmit = styled.input.attrs({
   flex: 1;
   border-radius: 10px;
   padding: 15px;
-  background-color: ${props => props.theme.colors.first};
+  background-color: ${Theme.colors.first};
   justify-content: center;
   font-weight: bold;
   cursor: pointer;
@@ -23,7 +24,7 @@ export const InputGeneric = styled.input`
   margin: 10px 0px;
   padding: 15px;
   border: 0;
-  background-color: ${props => props.theme.colors.background};
+  background-color: ${Theme.colors.background};
   border-radius: 10px;
 `;
 

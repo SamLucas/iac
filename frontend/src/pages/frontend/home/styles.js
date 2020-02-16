@@ -1,10 +1,9 @@
 import styled from "styled-components";
-import Theme from "../../../config/Theme";
 
 export const Container = styled.div``;
 
 export const IdentifySession = styled.h3`
-  color: ${Theme.first};
+  color: ${props => props.theme.colors.first};
 `;
 
 // estilos header
@@ -28,5 +27,5 @@ export const Link = styled.a`
   padding: 10px 40px;
   cursor: pointer;
   border-radius: 50px;
-  background-color: ${Theme.first};
+  background-color: ${props => props.theme.colors.first};
 `;

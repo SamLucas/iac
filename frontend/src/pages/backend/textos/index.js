@@ -1,6 +1,6 @@
 import React from "react";
 
-import { ContainerSwitch } from "src/config/DefaultStyle";
+import { ContainerSwitch } from "src/config/defaultStyle";
 
 export default function textos() {
   return (

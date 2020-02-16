@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Theme from "../../../config/Theme";
 
 export const Container = styled.div`
   margin: 100px;
@@ -19,7 +18,7 @@ export const HeaderDescribe = styled.div`
 `;
 
 export const Lista = styled.div`
-  border-right: 1px solid ${Theme.first};
+  border-right: 1px solid ${props => props.theme.colors.first};
   padding-right: 30px;
 `;
 export const Itens = styled.div`
@@ -27,7 +26,8 @@ export const Itens = styled.div`
   padding: 10px;
   border-radius: 10px;
   color: ${props => (props.ativo ? "white" : "black")};
-  background-color: ${props => (props.ativo ? Theme.first : Theme.back)};
+  background-color: ${props =>
+    props.ativo ? props.theme.colors.first : props.theme.colors.back};
   cursor: pointer;
 `;
 
@@ -60,7 +60,7 @@ export const Describe = styled.div`
 `;
 
 export const LinkLattes = styled.a`
-  color: ${Theme.first};
+  color: ${props => props.theme.colors.first};
   text-decoration: none;
 
   font-weight: bold;

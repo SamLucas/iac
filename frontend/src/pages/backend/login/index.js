@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import api from "src/services/api";
 
 import { Container, ContainerLogin, Form } from "./styles";
-import { InputGeneric, InputSubmit } from "src/config/DefaultStyle";
+import { InputGeneric, InputSubmit } from "src/config/defaultStyle";
 
 import LoginSvg from "src/assets/svgs/Login.svg";
 

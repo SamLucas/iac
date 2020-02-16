@@ -1,5 +1,5 @@
 import React from "react";
-import { Container } from "src/config/DefaultStyle";
+import { Container } from "src/config/defaultStyle";
 import { Describe, Header, HeaderTitle, HeaderDescribe } from "./styles";
 
 import Menu from "../../../components/menu";

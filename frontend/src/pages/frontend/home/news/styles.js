@@ -1,10 +1,9 @@
 import styled from "styled-components";
-import Theme from "src/config/Theme";
 import { Link } from "react-router-dom";
 import { FaAngleLeft, FaAngleRight } from "react-icons/fa";
 
 export const ContainerIcon = styled.div`
-  background-color: ${Theme.first};
+  background-color: ${props => props.theme.colors.first};
   align-self: center;
   padding: 10px;
   border-radius: 5px;
@@ -26,7 +25,7 @@ export const ContainerNew = styled.div`
 
   display: grid;
   grid-template-columns: 0.8fr 1fr;
-  background-color: ${Theme.first};
+  background-color: ${props => props.theme.colors.first};
   gap: 50px;
 `;
 
@@ -83,7 +82,8 @@ export const ContainerPagination = styled.div`
 export const NumberPagination = styled.div`
   padding: 10px 13px;
   color: ${props => (props.ativo ? "white" : "black")};
-  background-color: ${props => (props.ativo ? Theme.first : Theme.back)};
+  background-color: ${props =>
+    props.ativo ? props.theme.colors.first : props.theme.colors.back};
   border-radius: 5px;
   margin: 0px 5px;
 `;

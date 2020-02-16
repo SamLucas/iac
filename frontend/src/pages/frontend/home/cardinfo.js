@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Theme from "../../../config/Theme";
 
 // estilos card info
 export const Line = styled.div`
@@ -22,7 +21,7 @@ export const ContainerInfo = styled.div`
   }
 `;
 export const Name = styled.div`
-  color: ${Theme.first};
+  color: ${props => props.theme.colors.first};
   font-weight: bold;
   margin-bottom: 10px;
 `;

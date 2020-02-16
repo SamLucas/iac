@@ -6,15 +6,15 @@ import {
   ContactTitle,
   ContatoDescribe,
   Row,
-  Button,
   ContentInfo,
   ContentTittle,
   ContentDescribe,
   Mensage,
   Form,
-  TextInput,
   TextInputArea
 } from "./styles";
+
+import { InputGeneric, InputSubmit } from "src/config/defaultStyle";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -68,17 +68,17 @@ export default function Contact() {
         <Mensage>
           <IdentifySession>Envie uma mensagem</IdentifySession>
           <Form onSubmit={handleSubmite}>
-            <TextInput
+            <InputGeneric
               placeholder={"Seu nome completo..."}
               value={name}
               onChange={e => setName(e.target.value)}
             />
-            <TextInput
+            <InputGeneric
               placeholder={"Seu melhor email..."}
               value={email}
               onChange={e => setEmail(e.target.value)}
             />
-            <TextInput
+            <InputGeneric
               placeholder={"Digite o assunto..."}
               value={assunto}
               onChange={e => setAssunto(e.target.value)}
@@ -89,7 +89,7 @@ export default function Contact() {
               onChange={e => setMensagem(e.target.value)}
               row="10"
             />
-            <Button type="submit">Enviar</Button>
+            <InputSubmit value="Enviar" />
           </Form>
         </Mensage>
         <Info>

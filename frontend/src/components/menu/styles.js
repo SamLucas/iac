@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import Theme from "../../config/Theme";
 import { Link } from "react-router-dom";
 
 export const Ul = styled.ul`
@@ -13,11 +12,12 @@ export const Li = styled.li`
   padding: 10px 20px;
   list-style: none;
   font-size: 16px;
-  border-bottom: 2px solid ${props => (props.ativo ? Theme.first : "white")};
+  border-bottom: 2px solid
+    ${props => (props.ativo ? props.theme.colors.first : "white")};
   cursor: pointer;
 
   &:hover {
-    border-bottom: 2px solid ${Theme.first};
+    border-bottom: 2px solid ${props => props.theme.colors.first};
   }
 `;
 

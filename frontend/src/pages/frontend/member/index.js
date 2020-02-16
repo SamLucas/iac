@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Container } from "src/config/DefaultStyle";
+import { Container } from "src/config/defaultStyle";
 import {
   Lista,
   Itens,
