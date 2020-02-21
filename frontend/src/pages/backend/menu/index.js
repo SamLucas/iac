@@ -51,7 +51,9 @@ export default function MenuBackend() {
               : "https://picsum.photos/300/400"
           }
         />
-        <h3>{dataUser.user.name}</h3>
+        <h3>
+          {dataUser.user.name.split(" ")[0]} {dataUser.user.name.split(" ")[1]}
+        </h3>
         <p>{dataUser.user.email}</p>
 
         {console.log(dataUser)}

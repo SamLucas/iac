@@ -1,10 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  ContainerSwitch,
-  ButtonAdd,
-  InputGeneric
-} from "src/config/defaultStyle";
-import DataTable from "react-data-table-component";
+import { ContainerSwitch, ButtonAdd } from "src/config/defaultStyle";
 
 import {
   ContentExpand,
@@ -13,10 +8,18 @@ import {
   IconLixeira
 } from "./styles";
 
+import DataTable from "react-data-table-component";
+
 import api from "src/services/api";
+import ModalExcluir from "src/components/modal/excluir";
+import ModalAddMember from "src/components/modal/add_member";
 
 export default function Membros() {
   const [dataMembers, setDataMembers] = useState([]);
+  const [dataMember, setDataMember] = useState({});
+
+  const [modalExc, setModalExc] = useState(false);
+  const [modalData, setModalData] = useState(false);
 
   const columns = [
     {
@@ -39,33 +42,40 @@ export default function Membros() {
     loadData();
   }, []);
 
-  const ExpandTable = ({ data }) => (
-    <ContainerExpand>
-      <ContentExpand>
-        <img
-          src={
-            data.foto_url != null
-              ? `${process.env.REACT_APP_API_URL}/files/members/${data.foto_url}`
-              : "https://picsum.photos/300/400"
-          }
-          alt={data.name}
-        />
-        <div>
-          <div className="contentInfo">
-            <h3>{data.name}</h3>
-            <p>{data.email}</p>
-          </div>
+  const ExpandTable = ({ data }) => {
+    setDataMember(data);
+    return (
+      <ContainerExpand>
+        <ContentExpand>
+          <img
+            src={
+              data.foto_url != null
+                ? `${process.env.REACT_APP_API_URL}/files/members/${data.foto_url}`
+                : "https://picsum.photos/300/400"
+            }
+            alt={data.name}
+          />
+          <div>
+            <div className="contentInfo">
+              <h3>{data.name}</h3>
+              <p>{data.email}</p>
+            </div>
 
-          <p>{data.descricao}</p>
-          <a href={data.lattes}>Link curriculum lattes</a>
-        </div>
-        <div className="actions">
-          <IconAlter />
-          <IconLixeira />
-        </div>
-      </ContentExpand>
-    </ContainerExpand>
-  );
+            <p>{data.descricao}</p>
+            <a href={data.lattes}>Link curriculum lattes</a>
+          </div>
+          <div className="actions">
+            <IconAlter onClick={() => setModalData(true)} />
+            <IconLixeira
+              onClick={() => {
+                setModalExc(true);
+              }}
+            />
+          </div>
+        </ContentExpand>
+      </ContainerExpand>
+    );
+  };
 
   return (
     <>
@@ -73,33 +83,31 @@ export default function Membros() {
         {console.log(dataMembers)}
 
         <DataTable
-          // title="Membros"
           columns={columns}
           data={dataMembers}
           Clicked
-          // Selected={data => console.log(data)}
-          // selectableRows
-          pagination={true}
-          paginationPerPage={10}
           expandableRows={true}
           expandOnRowClicked={true}
           expandableRowsComponent={<ExpandTable />}
           subHeader={true}
-          subHeaderComponent={
-            <InputGeneric
-              type="text"
-              style={{ marginTop: -170, marginBottom: -130, width: 250 }}
-              placeholder="Digite o nome de um membro..."
-            />
-          }
-          subHeaderComponent={<h2>Testando</h2>}
+          subHeaderComponent={<h2>Membros</h2>}
           subHeaderAlign={"left"}
           noHeader={true}
-          // subHeaderAlign={"right"}
-          fixedHeader={false}
         />
+
+        <ModalExcluir
+          stateModal={modalExc}
+          onDelete={() => alert("sem função parça.")}
+          mensage={
+            <p>
+              Deseja excluir o membro: <strong>{dataMember.name}</strong>
+            </p>
+          }
+        />
+
+        <ModalAddMember stateModal={modalData} data={dataMember} />
       </ContainerSwitch>
-      <ButtonAdd />
+      <ButtonAdd onClick={() => setModalData(true)} />
     </>
   );
 }

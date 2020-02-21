@@ -7,9 +7,9 @@ import Menu from "src/pages/backend/menu";
 
 const Container = styled.div`
   display: flex;
-  flex: 1;
   background-color: ${props => props.theme.colors.background};
   padding: 20px;
+  height: 100vh;
 `;
 
 export default function Utils(Page) {

@@ -16,7 +16,6 @@ const DefaultPropsIcons = css`
 
 export const Container = styled.div`
   border-radius: 15px;
-  background-color: white;
   padding: 20px;
 `;
 
@@ -49,7 +48,7 @@ export const Profile = styled.div`
 
   p,
   h3 {
-    margin: 3px 0px 0px;
+    margin: 5px 0px 0px;
     text-align: center;
   }
 
